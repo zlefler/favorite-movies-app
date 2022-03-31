@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MoviesList from './MoviesList';
+import MovieForm from './MovieForm';
 
 function App() {
   const [movies, setMovies] = useState('');
@@ -13,9 +14,10 @@ function App() {
   );
 
   return (
-    <h1>
+    <>
+      <MovieForm />
       <MoviesList movies={movies} />
-    </h1>
+    </>
   );
 }
 
