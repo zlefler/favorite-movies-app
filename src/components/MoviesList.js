@@ -1,13 +1,19 @@
 import React from 'react';
 import MovieCard from './MovieCard';
 
-function MoviesList({ movies }) {
+function MoviesList({ movies, onDeleteClick }) {
   return (
     <div>
       <h1>My Favorite Movies</h1>
       {movies
         ? movies.map((movie) => {
-            return <MovieCard key={movie.id} info={movie} />;
+            return (
+              <MovieCard
+                onDeleteClick={onDeleteClick}
+                key={movie.id}
+                info={movie}
+              />
+            );
           })
         : null}
     </div>

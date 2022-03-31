@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import MoviesList from './MoviesList';
 import MovieForm from './MovieForm';
+import Home from './Home';
+import NavBar from './NavBar';
 
 function App() {
   const [movies, setMovies] = useState('');
@@ -13,10 +16,42 @@ function App() {
     []
   );
 
+  function onSubmit(newMovie) {
+    fetch('http://localhost:3000/movies', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newMovie),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setMovies([...movies, data]);
+      });
+  }
+
+  function onDeleteClick(id) {
+    fetch(`http://localhost:3000/movies/${id}`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .then(setMovies(movies.filter((movie) => movie.id !== id)));
+  }
+
   return (
     <>
-      <MovieForm />
-      <MoviesList movies={movies} />
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/form">
+          <MovieForm onSubmit={onSubmit} />
+        </Route>
+        <Route path="/list">
+          <MoviesList onDeleteClick={onDeleteClick} movies={movies} />
+        </Route>
+      </Switch>
     </>
   );
 }

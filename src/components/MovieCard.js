@@ -1,6 +1,6 @@
 import React from 'react';
 
-function MovieCard({ info }) {
+function MovieCard({ info, onDeleteClick }) {
   let stars = '';
   for (let i = 0; i < info.rating; i++) {
     stars += '⭐';
@@ -15,7 +15,11 @@ function MovieCard({ info }) {
       <div className="card-body">
         <h5 className="card-title">{stars}</h5>
         <p className="card-text">{`${info.name} (${info.year})`}</p>
-        <button href="#" className="btn btn-primary">
+        <button
+          onClick={() => onDeleteClick(info.id)}
+          href="#"
+          className="btn btn-primary"
+        >
           Delete
         </button>
       </div>
