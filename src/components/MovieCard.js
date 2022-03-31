@@ -45,7 +45,7 @@ function MovieCard({ info, onDeleteClick, onRatingChange }) {
         <button
           onClick={() => handleRatingClick(info)}
           href="#"
-          className="btn btn-info"
+          className="btn btn-edit"
         >
           Edit Rating
         </button>

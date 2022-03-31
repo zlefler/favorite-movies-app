@@ -58,7 +58,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home movies={movies} />
         </Route>
         <Route path="/form">
           <MovieForm onSubmit={onSubmit} />

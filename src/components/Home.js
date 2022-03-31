@@ -1,11 +1,15 @@
 import React from 'react';
 
-function Home() {
+function Home({ movies }) {
   return (
-    <div>
-      <h1>Welcome to The Movie Database!</h1>
-      <h2>Keep track of all the movies you've seen</h2>
-      <h3>in one easy location.</h3>
+    <div className="home">
+      <h1 className="home">Welcome to The Movie Database!</h1>
+      <h2 className="home">
+        Keep track of all the movies you've seen in one easy location.
+      </h2>
+      <h3 className="home">
+        Currently you have logged {movies.length} movies.
+      </h3>
     </div>
   );
 }
