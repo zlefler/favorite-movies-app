@@ -15,3 +15,11 @@ code {
 .btn {
   margin: 10px;
 }
+
+.navbar {
+  background-color: cornflowerblue;
+}
+
+.navlink {
+  color: white;
+}
