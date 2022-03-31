@@ -4,9 +4,13 @@ import MoviesList from './MoviesList';
 function App() {
   const [movies, setMovies] = useState('');
 
-  fetch('http://localhost:3000/movies')
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+  useEffect(
+    () =>
+      fetch('http://localhost:3000/movies')
+        .then((res) => res.json())
+        .then((data) => setMovies(data)),
+    []
+  );
 
   return (
     <h1>
