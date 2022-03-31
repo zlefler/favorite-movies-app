@@ -38,6 +38,21 @@ function App() {
       .then(setMovies(movies.filter((movie) => movie.id !== id)));
   }
 
+  function onRatingChange(newMovieObj) {
+    console.log(newMovieObj);
+    fetch(`http://localhost:3000/movies/${newMovieObj.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newMovieObj),
+    })
+      .then((res) => res.json())
+      .then((data) =>
+        setMovies(movies.map((movie) => (movie.id === data.id ? data : movie)))
+      );
+  }
+
   return (
     <>
       <NavBar />
@@ -49,7 +64,11 @@ function App() {
           <MovieForm onSubmit={onSubmit} />
         </Route>
         <Route path="/list">
-          <MoviesList onDeleteClick={onDeleteClick} movies={movies} />
+          <MoviesList
+            onRatingChange={onRatingChange}
+            onDeleteClick={onDeleteClick}
+            movies={movies}
+          />
         </Route>
       </Switch>
     </>

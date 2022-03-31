@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ChangeRating from './ChangeRating';
 
-function MovieCard({ info, onDeleteClick }) {
+function MovieCard({ info, onDeleteClick, onRatingChange }) {
+  const [editForm, setEditForm] = useState(false);
+
   let stars = '';
   for (let i = 0; i < info.rating; i++) {
     stars += '⭐';
   }
   for (let i = 0; i < 10 - info.rating; i++) {
     stars += '☆';
+  }
+
+  function handleRatingClick() {
+    setEditForm(true);
+  }
+
+  function handleRatingChange(e, newRating) {
+    e.preventDefault();
+    setEditForm(false);
+    const movieWithNewRating = {
+      id: info.id,
+      name: info.name,
+      year: info.year,
+      image: info.image,
+      rating: newRating,
+    };
+    onRatingChange(movieWithNewRating);
   }
 
   return (
@@ -18,10 +38,20 @@ function MovieCard({ info, onDeleteClick }) {
         <button
           onClick={() => onDeleteClick(info.id)}
           href="#"
-          className="btn btn-primary"
+          className="btn btn-danger"
         >
           Delete
         </button>
+        <button
+          onClick={() => handleRatingClick(info)}
+          href="#"
+          className="btn btn-info"
+        >
+          Edit Rating
+        </button>
+        {editForm ? (
+          <ChangeRating handleRatingChange={handleRatingChange} />
+        ) : null}
       </div>
     </div>
   );
