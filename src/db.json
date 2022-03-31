@@ -1,0 +1,30 @@
+{
+    "movies": [
+      {
+        "id": 1,
+        "name": "Persona",
+        "year": "1966",
+        "image": "https://s3.amazonaws.com/criterion-production/films/d5c135c95f58e74e2ee28cb92659bafd/DoD5SlisIFjKyi0zucupnwj2B3ADGy_large.jpg",
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "name": "8 1/2",
+        "year": "1963",
+        "image": "https://s3.amazonaws.com/criterion-production/films/2ae55be0d1938dcd30082006b5108053/EBSPG1J9ip2HjvJtUmzlDGLM9EtTFX_large.jpg",
+        "rating": 4
+      },
+      {
+        "id": 3,
+        "name": "Citizen Kane",
+        "year": "1941",
+        "image": "https://m.media-amazon.com/images/I/91zcYtPPMOL._SY445_.jpg",
+        "rating": 6
+      },
+      {"id": 4,
+        "name": "Fast Five",
+        "year": "2011",
+        "image": "https://static.wikia.nocookie.net/fastandfurious/images/e/ed/Fast_Five_Poster.jpg/revision/latest?cb=20200323092932",
+        "rating": 10}
+    ]
+  }
