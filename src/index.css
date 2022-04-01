@@ -34,3 +34,7 @@ code {
 .btn-edit {
   background-color: cornflowerblue;
 }
+
+input {
+  display: block;
+}
