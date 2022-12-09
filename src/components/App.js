@@ -6,15 +6,13 @@ import Home from './Home';
 import NavBar from './NavBar';
 
 function App() {
-  const [movies, setMovies] = useState('');
+  const [movies, setMovies] = useState([]);
 
-  useEffect(
-    () =>
-      fetch('http://localhost:3000/movies')
-        .then((res) => res.json())
-        .then((data) => setMovies(data)),
-    []
-  );
+  useEffect(() => {
+    fetch('http://localhost:3000/movies')
+      .then((res) => res.json())
+      .then((data) => setMovies(data));
+  }, []);
 
   function onSubmit(newMovie) {
     fetch('http://localhost:3000/movies', {
@@ -57,9 +55,6 @@ function App() {
     <>
       <NavBar />
       <Switch>
-        <Route exact path="/">
-          <Home movies={movies} />
-        </Route>
         <Route path="/form">
           <MovieForm onSubmit={onSubmit} />
         </Route>
@@ -69,6 +64,9 @@ function App() {
             onDeleteClick={onDeleteClick}
             movies={movies}
           />
+        </Route>
+        <Route path="/">
+          <Home movies={movies} />
         </Route>
       </Switch>
     </>

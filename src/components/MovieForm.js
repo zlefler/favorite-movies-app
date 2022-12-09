@@ -15,6 +15,10 @@ function MovieForm({ onSubmit }) {
       rating: rating,
     };
     onSubmit(newMovie);
+    setName('');
+    setYear('');
+    setRating('');
+    setImage('');
     alert('New Movie Added!');
   }
 

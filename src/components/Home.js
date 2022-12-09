@@ -1,8 +1,10 @@
 import React from 'react';
+import ClickMe from './ClickMe';
 
 function Home({ movies }) {
   return (
     <div className="home">
+      <ClickMe />
       <h1 className="home">Welcome to The Movie Database!</h1>
       <h2 className="home">
         Keep track of all the movies you've seen in one easy location.
