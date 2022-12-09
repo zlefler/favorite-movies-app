@@ -37,14 +37,12 @@ function MovieCard({ info, onDeleteClick, onRatingChange }) {
         <p className="card-text">{`${info.name} (${info.year})`}</p>
         <button
           onClick={() => onDeleteClick(info.id)}
-          href="#"
           className="btn btn-danger"
         >
           Delete
         </button>
         <button
-          onClick={() => handleRatingClick(info)}
-          href="#"
+          onClick={() => handleRatingClick()}
           className="btn btn-edit"
         >
           Edit Rating
